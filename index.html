@@ -4,36 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gestión de Productos</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <!-- Scripts del proyecto -->
+    <script defer src="js/productoManager.js"></script>
+    <script defer src="js/app.js"></script>
 </head>
 <body>
     <header>
-        <h1>Gestión de Productos</h1>
+        <img src="assets/logo.png" alt="Logo de la empresa">
+        <div>
+            <h1>3DPrint Manager</h1>
+            <p>Tu gestor de productos impresos en 3D</p>
+        </div>
     </header>
 
-    <section class="form-section">
-        <h2>Agregar / Editar Producto</h2>
-        <form id="product-form">
-            <input type="hidden" id="product-id">
-            <label for="name">Nombre:</label>
-            <input type="text" id="name" required>
+    <main>
+        <section class="form-section">
+            <h2>Agregar Producto</h2>
+            <input type="text" id="inputNombre" placeholder="Nombre del producto">
+            <input type="number" id="inputPrecio" placeholder="Precio" min="0" step="1">
+            <button id="btnAgregar">Agregar</button>
+        </section>
 
-            <label for="category">Categoría:</label>
-            <input type="text" id="category" required>
-
-            <label for="price">Precio:</label>
-            <input type="number" id="price" required min="0" step="0.01">
-
-            <button type="submit">Guardar</button>
-        </form>
-    </section>
-
-    <section class="table-section">
-        <h2>Lista de Productos</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th>Nombre</th>
-                    <th>Categoría</th>
-                    <th>Precio</th>
+        <section class="list-section">
+            <h2>Lista de Productos</h2>
+            <ul id="listaProductos">
+                <!-- Aquí se insertarán los productos -->
+            </ul>
+        </section>
+    </main>
+</body>
+</html>
 

@@ -1,0 +1,157 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f4f6f8;
+  color: #2c3e50;
+  padding: 20px;
+}
+
+/* Encabezado con logo */
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+header img {
+  height: 160px;
+  display: block;
+}
+
+header h1 {
+  font-size: 2rem;
+  color: #9b59b6;
+}
+
+header p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Formulario */
+.form-section,
+.list-section {
+  background-color: #ffffff;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.05);
+  border: 1px solid #dcdde1;
+}
+
+.form-section h2,
+.list-section h2 {
+  color: #3498db;
+}
+
+.form-section input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+#btnAgregar {
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  width: 100%;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+#btnAgregar:hover {
+  background-color: #2980b9;
+}
+
+/* Lista de productos */
+#listaProductos {
+  list-style: none;
+  padding: 0;
+}
+
+#listaProductos li {
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+#listaProductos li:last-child {
+  border-bottom: none;
+}
+
+#listaProductos button {
+  margin-left: 10px;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  color: #fff;
+}
+
+#listaProductos li button:nth-child(2) {
+  background-color: #9b59b6; /* Editar */
+}
+
+#listaProductos li button:nth-child(3) {
+  background-color: #e74c3c; /* Eliminar */
+}
+
+#listaProductos button:hover {
+  opacity: 0.9;
+}
+
+/* Responsive design para móviles */
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  .form-section,
+  .list-section {
+    padding: 15px;
+  }
+
+  .form-section input,
+  #btnAgregar {
+    font-size: 1rem;
+  }
+
+  #listaProductos li {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  #listaProductos button {
+    margin-top: 5px;
+    margin-left: 0;
+  }
+
+  header img {
+    height: 80px;
+  }
+}
+

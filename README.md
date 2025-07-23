@@ -1,27 +1,63 @@
+# 3DPrint Manager – CRUD de Productos en 3D
 
-## Objetivos de aprendizaje
-
-Este proyecto servirá como base para aplicar los conceptos del módulo de **Ingeniería de Software II**, tales como:
-
-- **Diseño de software**: aplicación de patrones, separación de responsabilidades, arquitectura (por ejemplo, estructura tipo MVC).
-- **Gestión de configuración**: uso de control de versiones (Git) para registrar cambios, mejoras y colaboraciones.
-- **Gestión de proyectos y métricas**: planificación de tareas, estimación de tiempo, y análisis de calidad a través de métricas simples.
-
-## Cómo usarlo
-
-1. Descarga o clona el repositorio.
-2. Abre `index.html` en tu navegador.
-3. Usa el formulario para agregar productos.
-4. Edita o elimina productos desde la tabla.
-5. Todo se guarda automáticamente en tu navegador.
-
-## Recomendaciones para estudiantes
-
-- Guarda versiones usando Git o GitHub.
-- Documenta tus mejoras o experimentos.
-- Piensa cómo podrías separar mejor las capas del sistema.
-- ¡Modifícalo, extiéndelo o intégralo con una API si quieres retarte más!
+Este proyecto es una versión mejorada del CRUD base desarrollado para el curso de **Ingeniería de Software II**. Ahora incluye persistencia de datos, patrón de diseño Singleton y una interfaz moderna y responsiva.
 
 ---
 
-> Proyecto educativo para fines de formación en Ingeniería de Software. Libre para adaptar, mejorar y compartir.
+## 🎯 Objetivos de aprendizaje
+
+Este repositorio permite aplicar los siguientes conceptos:
+
+- ✅ **Diseño de software**: separación de responsabilidades, patrón Singleton, estructura tipo MVC.
+- ✅ **Gestión de configuración**: organización en carpetas y control de versiones con Git.
+- ✅ **Interfaz de usuario moderna**: diseño responsive con CSS3, adaptado a dispositivos móviles.
+- ✅ **Persistencia de datos**: uso de `localStorage` para almacenar productos localmente.
+- ✅ **Desarrollo de CRUD funcional**: operaciones de crear, leer, actualizar y eliminar productos.
+
+---
+
+## 🧱 Estructura del proyecto
+
+📁 js/
+├── app.js
+└── productoManager.js
+📁 assets/
+├── logo.png
+└── css/
+└── style.css
+📄 index.html
+📄 README.md
+
+
+---
+
+## 🚀 ¿Cómo usarlo?
+
+1. Clona este repositorio o descarga el `.zip`.
+2. Abre el archivo `index.html` directamente en tu navegador.
+3. Escribe el nombre y precio de un producto y haz clic en **Agregar**.
+4. Usa los botones de **Editar** o **Eliminar** para gestionar cada producto.
+5. Los datos se guardan automáticamente en tu navegador mediante `localStorage`.
+
+---
+
+## 🛠️ Tecnologías utilizadas
+
+- HTML5
+- CSS3 (con diseño responsivo y personalizado)
+- JavaScript (modular, con patrón Singleton)
+- Almacenamiento en `localStorage`
+
+---
+
+## 🖌️ Créditos
+
+**Autora:** Leli Liliana Díaz Izquierdo  
+**Curso:** Ingeniería de Software II  
+**Institución:** Uniremington  
+**Versión:** 2.0 – Aplicación CRUD con patrón Singleton y UI inspirada en impresión 3D
+
+---
+
+> “Este proyecto está diseñado para apoyar procesos formativos en el análisis, diseño y gestión de software moderno desde un enfoque educativo y visualmente atractivo.”
+
