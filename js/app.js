@@ -1,76 +1,65 @@
-const gestor = ProductoManager.getInstancia();
+// app.js – versión 2.1 con integración de storage.js
 
-// DOM
-const inputNombre = document.getElementById("inputNombre");
-const inputPrecio = document.getElementById("inputPrecio");
-const btnAgregar = document.getElementById("btnAgregar");
-const listaProductos = document.getElementById("listaProductos");
+document.addEventListener("DOMContentLoaded", function () {
+  const formulario = document.getElementById("formulario");
+  const lista = document.getElementById("lista");
 
-let modoEdicion = false;
-let idProductoEditando = null;
+  // Mostrar productos al cargar
+  renderizarLista();
 
-// Evento: Agregar o Editar
-btnAgregar.addEventListener("click", function () {
-  const nombre = inputNombre.value.trim();
-  const precio = parseInt(inputPrecio.value.trim());
+  formulario.addEventListener("submit", function (e) {
+    e.preventDefault();
 
-  if (nombre === "" || isNaN(precio)) {
-    alert("Por favor ingresa un nombre y un precio válido.");
-    return;
-  }
+    const nombre = formulario.nombre.value.trim();
+    const precio = parseFloat(formulario.precio.value);
+    const cantidad = parseInt(formulario.cantidad.value);
 
-  if (modoEdicion) {
-    gestor.actualizar(idProductoEditando, { id: idProductoEditando, nombre, precio });
-    modoEdicion = false;
-    idProductoEditando = null;
-    btnAgregar.textContent = "Agregar";
-  } else {
-    const producto = {
+    if (nombre === "" || isNaN(precio) || isNaN(cantidad)) {
+      alert("Por favor completa todos los campos correctamente.");
+      return;
+    }
+
+    const nuevoProducto = {
       id: Date.now(),
       nombre,
-      precio
+      precio,
+      cantidad
     };
-    gestor.agregar(producto);
-  }
 
-  inputNombre.value = "";
-  inputPrecio.value = "";
-  mostrarProductos();
-});
-
-// Mostrar productos
-function mostrarProductos() {
-  const productos = gestor.obtenerTodos();
-  listaProductos.innerHTML = "";
-
-  productos.forEach(p => {
-    const item = document.createElement("li");
-    item.innerHTML = `
-      ${p.nombre} - $${p.precio.toLocaleString()}
-      <button onclick="editarProducto(${p.id})">Editar</button>
-      <button onclick="eliminarProducto(${p.id})">Eliminar</button>
-    `;
-    listaProductos.appendChild(item);
+    productoManager.agregar(nuevoProducto);
+    renderizarLista();
+    formulario.reset();
   });
-}
 
-// Eliminar producto
-function eliminarProducto(id) {
-  gestor.eliminar(id);
-  mostrarProductos();
-}
+  function renderizarLista() {
+    const productos = productoManager.listar();
+    lista.innerHTML = "";
 
-// Editar producto
-function editarProducto(id) {
-  const producto = gestor.buscarPorId(id);
-  if (producto) {
-    inputNombre.value = producto.nombre;
-    inputPrecio.value = producto.precio;
-    idProductoEditando = producto.id;
-    modoEdicion = true;
-    btnAgregar.textContent = "Guardar";
+    if (productos.length === 0) {
+      lista.innerHTML = "<p>No hay productos registrados.</p>";
+      return;
+    }
+
+    productos.forEach(producto => {
+      const item = document.createElement("div");
+      item.className = "producto";
+      item.innerHTML = `
+        <strong>${producto.nombre}</strong><br>
+        Precio: $${producto.precio.toFixed(2)}<br>
+        Cantidad: ${producto.cantidad}<br>
+        <button data-id="${producto.id}" class="eliminar">Eliminar</button>
+      `;
+      lista.appendChild(item);
+    });
+
+    // Manejar eliminación
+    document.querySelectorAll(".eliminar").forEach(boton => {
+      boton.addEventListener("click", function () {
+        const id = parseInt(this.getAttribute("data-id"));
+        productoManager.eliminar(id);
+        renderizarLista();
+      });
+    });
   }
-}
-
-mostrarProductos();
+});
 

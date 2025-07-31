@@ -1,46 +1,35 @@
-const ProductoManager = (function () {
-  let instancia;
+// Asegúrate que storage.js esté cargado antes que este archivo
 
-  function getProductsFromStorage() {
-    return JSON.parse(localStorage.getItem('products')) || [];
+const productoManager = (function () {
+  let productos = Storage.obtenerProductos(); // Usamos storage.js
+
+  function agregar(producto) {
+    productos.push(producto);
+    Storage.guardarProductos(productos); // Guardamos cambios
   }
 
-  function saveProductsToStorage(products) {
-    localStorage.setItem('products', JSON.stringify(products));
+  function listar() {
+    return productos;
   }
 
-  function crearInstancia() {
-    let productos = getProductsFromStorage();
+  function eliminar(id) {
+    productos = productos.filter(p => p.id !== id);
+    Storage.guardarProductos(productos);
+  }
 
-    return {
-      agregar: function (producto) {
-        productos.push(producto);
-        saveProductsToStorage(productos);
-      },
-      obtenerTodos: function () {
-        return productos;
-      },
-      eliminar: function (id) {
-        productos = productos.filter(p => p.id !== id);
-        saveProductsToStorage(productos);
-      },
-      actualizar: function (id, nuevoProducto) {
-        productos = productos.map(p => (p.id === id ? nuevoProducto : p));
-        saveProductsToStorage(productos);
-      },
-      buscarPorId: function (id) {
-        return productos.find(p => p.id === id);
-      }
-    };
+  function editar(id, nuevosDatos) {
+    const index = productos.findIndex(p => p.id === id);
+    if (index !== -1) {
+      productos[index] = { ...productos[index], ...nuevosDatos };
+      Storage.guardarProductos(productos);
+    }
   }
 
   return {
-    getInstancia: function () {
-      if (!instancia) {
-        instancia = crearInstancia();
-      }
-      return instancia;
-    }
+    agregar,
+    listar,
+    eliminar,
+    editar
   };
 })();
 
