@@ -66,15 +66,6 @@ Este diseño modular facilita la trazabilidad del flujo de datos y separa claram
 
 ---
 
-## 🖌️ Créditos
-
-**Autora:** Leli Liliana Díaz Izquierdo  
-**Curso:** Ingeniería de Software II  
-**Institución:** Uniremington  
-**Versión:** 2.1 – CRUD modular con Singleton y manejo de almacenamiento externo
-
----
-
 ✨ Mejora de la Interfaz de Usuario (rama interfaz)
 
 En esta etapa se propuso un rediseño de la interfaz gráfica para mejorar la claridad, eficiencia y experiencia de usuario. Aunque aún no se han implementado las funcionalidades, se han realizado los siguientes aportes:
@@ -100,6 +91,14 @@ En esta etapa se propuso un rediseño de la interfaz gráfica para mejorar la cl
     docs/evaluacion-interfaz.md
 
 🔧 Implementación de funcionalidades pendiente en próximos commits.
+
+---
+## 🖌️ Créditos
+
+**Autora:** Leli Liliana Díaz Izquierdo  
+**Curso:** Ingeniería de Software II  
+**Institución:** Uniremington  
+**Versión:** 2.1 – CRUD modular con Singleton y manejo de almacenamiento externo
 
 ---
 
