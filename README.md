@@ -75,5 +75,33 @@ Este diseño modular facilita la trazabilidad del flujo de datos y separa claram
 
 ---
 
+✨ Mejora de la Interfaz de Usuario (rama interfaz)
+
+En esta etapa se propuso un rediseño de la interfaz gráfica para mejorar la claridad, eficiencia y experiencia de usuario. Aunque aún no se han implementado las funcionalidades, se han realizado los siguientes aportes:
+
+    ✅ Diseño digital y boceto a mano del nuevo flujo de interfaz.
+
+    ✅ Inclusión de campo para subir imagen del producto.
+
+    ✅ Visualización de miniaturas en la lista de productos.
+
+    ✅ Control numérico para modificar la cantidad de productos.
+
+    ✅ Botones de acción con íconos intuitivos para agregar, editar y eliminar productos.
+
+    ✅ Archivo evaluacion-interfaz.md con checklist de criterios de usabilidad.
+
+📂 Archivos relacionados:
+
+    docs/rediseño_interfaz.png
+
+    docs/rediseño_dibujo.png
+
+    docs/evaluacion-interfaz.md
+
+🔧 Implementación de funcionalidades pendiente en próximos commits.
+
+---
+
 > “Este proyecto forma parte de un enfoque pedagógico orientado al aprendizaje activo del diseño y arquitectura de software en entornos reales.”
 
